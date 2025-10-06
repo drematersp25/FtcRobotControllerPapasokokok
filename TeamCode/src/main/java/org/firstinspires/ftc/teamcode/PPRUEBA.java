@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.hardware.SensorDirectChannel;
+
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -10,21 +12,21 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 public class MecanumTeleOp extends LinearOpMode {
 
     // Declarar los motores
-    private DcMotor leftFrontDrive = null;
-    private DcMotor leftBackDrive = null;
-    private DcMotor rightFrontDrive = null;
-    private DcMotor rightBackDrive = null;
-    private Limelight3A;
+    private DcMotor leftFrontDrive;
+    private DcMotor leftBackDrive;
+    private DcMotor rightFrontDrive;
+    private DcMotor rightBackDrive;
+    private Limelight3A limelight3A;
+    private SensorDirectChannel sensorDirectChannel;
     @Override
     public void runOpMode() {
-        // Mapear los motores con la configuración del robot en el Control Hub
+
         leftFrontDrive  = hardwareMap.get(DcMotor.class, "left_front_drive");
         leftBackDrive   = hardwareMap.get(DcMotor.class, "left_back_drive");
         rightFrontDrive = hardwareMap.get(DcMotor.class, "right_front_drive");
         rightBackDrive  = hardwareMap.get(DcMotor.class, "right_back_drive");
 
-        // Es muy importante invertir la dirección de los motores de un lado.
-        // Si tu robot gira en lugar de avanzar, invierte los motores del otro lado.
+
         leftFrontDrive.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBackDrive.setDirection(DcMotorSimple.Direction.REVERSE);
 
