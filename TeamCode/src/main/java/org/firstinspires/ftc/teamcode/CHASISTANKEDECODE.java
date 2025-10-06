@@ -1,12 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
+
+import com.qualcomm.hardware.digitalchickenlabs.OctoQuad;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-import org.firstinspires.ftc.robotcore.external.hardware.camera.Camera;
 
 @TeleOp(name = "REGINANAYELIJALATEPORUNOSTACOSUNACOCAYUNBOINGDEMANGOPEROENFAQUEANDOBIENCRUSTACEOKASCARUDO")
 public class CHASISTANKEDECODE extends OpMode {
@@ -15,9 +16,8 @@ public class CHASISTANKEDECODE extends OpMode {
 
     private DcMotor right;
     private DcMotor left;
-    private Camera Limelight;
     private Limelight3A limelight3A;
-
+    private OctoQuad.EncoderDirection encoderDirection;
 
     @Override
     public void init() {
@@ -27,7 +27,7 @@ public class CHASISTANKEDECODE extends OpMode {
         left.setDirection(DcMotorSimple.Direction.REVERSE);
         right.setDirection(DcMotorSimple.Direction.FORWARD);
     }
-
+    //no se que hacer :/
     @Override
     public void loop() {
     double leftPower = -gamepad1.left_stick_y;
