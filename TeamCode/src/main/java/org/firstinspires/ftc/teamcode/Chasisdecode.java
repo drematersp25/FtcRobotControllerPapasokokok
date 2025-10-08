@@ -1,12 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp
-public class Chasis extends OpMode {
+public class Chasisdecode extends LinearOpMode {
 
     private DcMotor frontRightDt;
     private DcMotor frontLeftDt;
@@ -14,7 +12,7 @@ public class Chasis extends OpMode {
     private DcMotor backLeftDt;
 
     @Override
-    public void init() {
+    public void runOpMode() {
         frontRightDt = hardwareMap.get(DcMotor.class, "FR");
         frontLeftDt = hardwareMap.get(DcMotor.class, "FL");
         backRightDt = hardwareMap.get(DcMotor.class, "BR");
@@ -26,10 +24,21 @@ public class Chasis extends OpMode {
         backRightDt.setDirection(DcMotorSimple.Direction.FORWARD);
         telemetry.addData("Status","Initialized");
         telemetry.update();
-    }
 
-    @Override
-    public void loop() {
+        waitForStart();
+        resetRuntime();
 
+        while (opModeIsActive()) {
+            double max;
+
+            double axial    = -gamepad1.left_stick_y;
+            double lateral  = gamepad1.left_stick_x;
+            double yaw      = gamepad1.right_stick_x;
+
+            frontLeftDt.setPower(0.1);
+            frontRightDt.setPower(0.1);
+            backLeftDt.setPower(0.1);
+            backRightDt.setPower(0.1);
+        }
     }
 }
