@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -9,6 +10,8 @@ public class Chasisdecode extends LinearOpMode {
     private DcMotor frontLeftDt;
     private DcMotor backRightDt;
     private DcMotor backLeftDt;
+    private Limelight3A limelight3A;
+    
     @Override
     public void runOpMode() {
         frontRightDt = hardwareMap.get(DcMotor.class, "FR");
