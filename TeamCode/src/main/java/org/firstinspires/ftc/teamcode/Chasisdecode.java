@@ -3,14 +3,12 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-
 public class Chasisdecode extends LinearOpMode {
 
     private DcMotor frontRightDt;
     private DcMotor frontLeftDt;
     private DcMotor backRightDt;
     private DcMotor backLeftDt;
-
     @Override
     public void runOpMode() {
         frontRightDt = hardwareMap.get(DcMotor.class, "FR");
@@ -35,10 +33,11 @@ public class Chasisdecode extends LinearOpMode {
             double lateral  = gamepad1.left_stick_x;
             double yaw      = gamepad1.right_stick_x;
 
-            frontLeftDt.setPower(0.1);
-            frontRightDt.setPower(0.1);
-            backLeftDt.setPower(0.1);
-            backRightDt.setPower(0.1);
+            frontLeftDt.setPower(1);
+            frontRightDt.setPower(1);
+            backLeftDt.setPower(1);
+            backRightDt.setPower(1);
+
         }
     }
 }
