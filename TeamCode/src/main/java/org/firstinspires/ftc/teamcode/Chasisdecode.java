@@ -4,6 +4,9 @@ import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
+import org.firstinspires.ftc.robotcore.external.hardware.camera.Camera;
+
 public class Chasisdecode extends LinearOpMode {
 
     private DcMotor frontRightDt;
@@ -11,6 +14,7 @@ public class Chasisdecode extends LinearOpMode {
     private DcMotor backRightDt;
     private DcMotor backLeftDt;
     private Limelight3A limelight3A;
+    private Camera camera;
     
     @Override
     public void runOpMode() {
@@ -19,12 +23,15 @@ public class Chasisdecode extends LinearOpMode {
         backRightDt = hardwareMap.get(DcMotor.class, "BR");
         backLeftDt = hardwareMap.get(DcMotor.class, "BL");
 
+        limelight3A = hardwareMap.get(Limelight3A.class, "Limelight 1");
+
         frontRightDt.setDirection(DcMotorSimple.Direction.FORWARD);
         frontLeftDt.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeftDt.setDirection(DcMotorSimple.Direction.REVERSE);
         backRightDt.setDirection(DcMotorSimple.Direction.FORWARD);
         telemetry.addData("Status","Initialized");
         telemetry.update();
+
 
         waitForStart();
         resetRuntime();
