@@ -1,9 +1,12 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.gobilda.GoBildaPinpointDriver;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareDevice;
+import com.qualcomm.robotcore.hardware.LightSensor;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.Camera;
 
@@ -15,6 +18,10 @@ public class Chasisdecode extends LinearOpMode {
     private DcMotor backLeftDt;
     private Limelight3A limelight3A;
     private Camera camera;
+    private GoBildaPinpointDriver.GoBildaOdometryPods odometryPods;
+    private GoBildaPinpointDriver.EncoderDirection encoderDirection;
+    private HardwareDevice.Manufacturer manufacturer;
+
     
     @Override
     public void runOpMode() {
@@ -23,7 +30,9 @@ public class Chasisdecode extends LinearOpMode {
         backRightDt = hardwareMap.get(DcMotor.class, "BR");
         backLeftDt = hardwareMap.get(DcMotor.class, "BL");
 
-        limelight3A = hardwareMap.get(Limelight3A.class, "Limelight 1");
+        limelight3A = hardwareMap.get(Limelight3A.class, "Limelight Outake");
+        limelight3A = hardwareMap.get(Limelight3A.class, "Limelight Chasis");
+        camera = hardwareMap.get(Camera.class, "Spinindexer");
 
         frontRightDt.setDirection(DcMotorSimple.Direction.FORWARD);
         frontLeftDt.setDirection(DcMotorSimple.Direction.REVERSE);
